@@ -17,23 +17,18 @@ namespace TcheLivra.Models
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         
-        [Display(Name = "Data")]
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
-        public DateTime Data { get; set; }
-
-
-        [StringLength(60, MinimumLength = 3)]
-        public string Director { get; set; }
+        public int ApplicationUserID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         
         public int CategoriaID { get; set; }
         public virtual Categoria Categoria { get; set; }
 
-        [Display(Name = "Upload image")]
+        [Display(Name = "Inserir foto")]
         public byte[] ImageFile { get; set; }
         public string ImageMimeType { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
-        [Display(Name = "Image link")]
-        [DataType(DataType.ImageUrl)]
-        public String ImageUrl { get; set; }        
+        public DateTime? ModifiedDate { get; set; }
+
     }
 }
